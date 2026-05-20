@@ -49,3 +49,17 @@ const list = document.querySelector('#todo-list');
 // Передаем их в функцию из counter.js
 setupTodo(btn, inp, list);
 
+const cardLists = document.querySelectorAll('.cards-list');
+
+cardLists.forEach(listZone => {
+  listZone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  listZone.addEventListener('drop', () => {
+    const draggingCard = document.querySelector('.dragging');
+    if (draggingCard) {
+      listZone.appendChild(draggingCard);
+    }
+  });
+});

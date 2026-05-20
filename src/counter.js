@@ -40,6 +40,15 @@ export function setupTodo(button, input, todoList) {
     // Вставляем карточку строго внутрь списка «To-do»
     todoList.insertAdjacentHTML('beforeend', cardTemplate);
 
+const currentCard = document.getElementById(id);
+
+currentCard.addEventListener('dragstart', () => {
+  currentCard.classList.add('dragging');
+});
+
+currentCard.addEventListener('dragend', () => {
+  currentCard.classList.remove('dragging');
+});
 
     // Находим созданную карточку
     const newCard = document.getElementById(id);
@@ -59,3 +68,4 @@ export function setupTodo(button, input, todoList) {
     input.value = '';
   });
 }
+
